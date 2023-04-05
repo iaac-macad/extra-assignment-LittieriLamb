@@ -3,19 +3,60 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kinetic facade - solar potential</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-        }
+    <title>Spiky dome</title>
 
-        input {
-            width: 30%;
-        }
+    <style>
+        
+        body { 
+    background-color: #d2f6ff;
+    margin: 50px; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+input {
+    width: 30%;
+}
+
+h1 {
+    position: relative;
+    font-size: 50px;
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: none;
+    background: none;
+    background-clip: text;
+    -webkit-text-fill-color: solid 2px#005e80;
+    letter-spacing: 5px;
+}
+      
+
+
+::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  width: 80%;
+  background: linear-gradient(90deg, #c2f0ff, #0175d4);
+  height: 15px;
+  border-radius: 4px;
+  margin: 10px 1px;
+}
+::-webkit-slider-thumb {
+  -webkit-appearance: solid;
+  height: 8px;
+  width: 6px;
+  border-radius: none;
+  background-color:#002c47;
+  cursor: pointer;
+}
+
+
+.grasshopper {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
         #container {
-            position: center;
+            position: right;
         }
 
         #overlay {
@@ -24,17 +65,15 @@
         }
 
         #loader {
-            border: 5px solid #c703a6;
-            /* Light grey */
-            border-top: 5px solid #5e5e5e;
-            /* Grey */
-            border-radius: 60%;
-            width: 80px;
-            height: 480px;
+            border: linear-gradient(#037cc7, #e8f4ff) 3px;
+            border-top: 5px dashed #4c7184;
+            border-radius: 100%;
+            width: 40px;
+            height: 70px;
             animation: spin 1s linear infinite;
             position: absolute;
-            top: 30%;
-            left: 50%;
+            top: 50%;
+            left: 70%;
             z-index: 1;
         }
 
@@ -47,44 +86,96 @@
                 transform: rotate(360deg);
             }
         }
-    </style>
+
+</style>
   
 </head>
 
 <body>
+    ...............................................................................................................................................................
+    <div class="section">
+        <div class="section-left">
+            <h1>   Spiky dome</h1>
+        
+        </div>
+        ...............................................................................................................................................................
+
+        <div class="section">
+            <div class="section-left">
+                <h5>   Move the sliders to get a different geometry sudvision and a different opening for the panels</h5>
+                <h5>  Hit the button to preview each geometries are more exposed to sun light along the day </h5>
+                <h5> Check the legend and the compass, it will help you to understand it</h5>
+            </div>
+            ...............................................................................................................................................................
+
+    
     <div id="loader"></div>
     <div id="container">
         <div id="overlay">
+           
             <div>
+                <h10>   Divide the dome in triagles by moving this slider</h10>
+                <div>
+
+                 <div>
                 <input type="range" id="Triangulate" name="Triangulate" min="0.1" max="2.5" value="2.0" step="0.1">
                 <label for="Triangulate">Triangulate</label>
+                <div class="section-left">
             </div>
+
             <div>
+                <h10>   Divide the triangles in smaller pieces by moving this slider</h10>
+                <div>
+
+                <div>
                 <input type="range" id="Subdivide_triangles" name="Subdivide_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
                 <label for="Subdivide_triangles">Subdivide_triangles</label>
             </div>
+
             <div>
+                <h10>   Inflate and deflate the pieces by moving this slider</h10>
+                <div>
+
+                <div>
                 <input type="range" id="Inflate_triangles" name="Inflate_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
                 <label for="Inflate_triangles">Inflate_triangles</label>
             </div>
+
             <div>
+                <h10>   Open and close the panels by moving this slider</h10>
+                <div>
+
+                <div>
                 <input type="range" id="Panel_openings" name="Panel_openings" min="15" max="50" value="38" step="1">
                 <label for="Panel_openings">Panel_openings</label>
             </div>
          
         </div>
-    </div>
+        
+        ...............................................................................................................................................................
+ <div class="section">
+            <div class="section-left">
+                <h5>   TEXT TEXT TEXT TEXT TEXT </h5>
+            </div>
+            ...............................................................................................................................................................
+    
     <script type="importmap">
 			{
+            </div>
+            <div class="section">
+                <div class="section-right">
+                
 				"imports": {
 				  "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
 				  "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/",
                   "rhino3dm": "https://unpkg.com/rhino3dm@0.15.0-beta/rhino3dm.module.js",
                   "rhinocompute": "https://cdn.jsdelivr.net/npm/compute-rhino3d@0.13.0-beta/compute.rhino3d.module.js"
+                </div>
 				}
 			  }
 		  </script>
     <script type="module" src="scriptX.js"></script>
+
 </body>
 
 </html>
