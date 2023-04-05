@@ -36,6 +36,12 @@ rhino3dm().then(async (m) => {
   console.log("Loaded rhino3dm.")
   rhino = m // global
 
+
+  ///////////////////////////////////////////////////////////////////////////
+  /////////////////////// IT IS SHOWING HOST 5000 AT RHINO COMPUTE//////////
+/////////////////////// IT IS SHOWING HOST 5500 AT BROWSER//////////////////
+///////////////////////////////////////////////////////////////////////////
+
   RhinoCompute.url = "http://localhost:8081/" //if debugging locally.
 
   // load a grasshopper file!
@@ -225,8 +231,9 @@ function onWindowResize() {
   animate()
 }
 
+
 function meshToThreejs(mesh, material) {
   const loader = new THREE.BufferGeometryLoader()
   const geometry = loader.parse(mesh.toThreejsJSON())
-  return new THREE.Mesh(geometry, material)
+  return new THREE.Mesh(geometry, material) 
 }
