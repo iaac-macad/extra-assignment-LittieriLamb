@@ -5,6 +5,7 @@ import { Rhino3dmLoader } from "three/addons/loaders/3DMLoader.js"
 import rhino3dm from "rhino3dm"
 import { RhinoCompute } from "rhinocompute"
 
+
 const definitionName = "Triangulated_dome.gh"
 
 // Set up sliders
@@ -30,6 +31,13 @@ Panel_openings_slider.addEventListener("touchend", onSliderChange, false)
 
 const loader = new Rhino3dmLoader()
 loader.setLibraryPath("https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/")
+function computeFetch() {
+  ComputeFetch("https://compute.rhino3d.com/", "myAPIKey", "/grasshopper", args)
+}
+
+
+
+
 
 let rhino, definition, doc
 rhino3dm().then(async (m) => {
@@ -76,17 +84,12 @@ async function compute() {
   const param4 = new RhinoCompute.Grasshopper.DataTree("Panel_openings")
   param3.append([0], [Panel_openings_slider.valueAsNumber])
 
-
-  
   // clear values
   const trees = []
   trees.push(param1)
   trees.push(param2)
   trees.push(param3)
   trees.push(param4)
-
-
-
 
   // Run the definition
   const res = await RhinoCompute.Grasshopper.evaluateDefinition(
@@ -111,7 +114,6 @@ async function compute() {
   }
 
   // go through the objects in the Rhino document
-
   let objects = doc.objects()
   for (let i = 0; i < objects.count; i++) {
     const rhinoObject = objects.get(i)
@@ -141,13 +143,11 @@ async function compute() {
   const buffer = new Uint8Array(doc.toByteArray()).buffer
   loader.parse(buffer, function (object) {
     // go through all objects, check for userstrings and assing colors
-
     object.traverse((child) => {
       if (child.isLine) {
-        if (child.userData.attributes.geometry.userStringCount > 0) {
-          //get color from userStrings
-          const colorData = child.userData.attributes.userStrings[0]
-          const col = colorData[1]
+        const attr = child.userData.attributes
+        if (attr !== undefined) {
+         
 
           //convert color from userstring to THREE color and assign it
           const threeColor = new THREE.Color("rgb(" + col + ")")

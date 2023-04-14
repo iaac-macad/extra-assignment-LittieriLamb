@@ -32,7 +32,7 @@ h1 {
 
 ::-webkit-slider-runnable-track{
   -webkit-appearance: none;
-  width: 80%;
+  width: 50%;
   background: linear-gradient(90deg, #c2f0ff, #0175d4);
   height: 15px;
   border-radius: 4px;
@@ -49,7 +49,7 @@ h1 {
 
 
 .grasshopper {
-    width: 70%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -95,95 +95,82 @@ h1 {
     ...............................................................................................................................................................
     <div class="section">
         <div class="section-left">
-            <h1>   Spiky dome</h1>
+            <h1>Spiky dome</h1>
         
         </div>
-        ...............................................................................................................................................................
+    </div>
+    ...............................................................................................................................................................
 
-        <div class="section">
-            <div class="section-left">
-                <h5>   Move the sliders to get a different geometry sudvision and a different opening for the panels</h5>
-                <h5>  Hit the button to preview each geometries are more exposed to sun light along the day </h5>
-                <h5> Check the legend and the compass, it will help you to understand it</h5>
-            </div>
-            ...............................................................................................................................................................
+    <div class="section">
+        <div class="section-left">
+            <h5>Move the sliders to get a different geometry sudvision and a different opening for the panels</h5>
+            <h5>Hit the button to preview each geometries are more exposed to sun light along the day</h5>
+            <h5>Check the legend and the compass, it will help you to understand it</h5>
+        </div>
+    </div>
+    ...............................................................................................................................................................
 
-    
     <div id="loader"></div>
     <div id="container">
         <div id="overlay">
-           
-            <div>
+           <div></div>
                 <h10>   Divide the dome in triagles by moving this slider</h10>
-                <div>
-
-                 <div>
-                <input type="range" id="Triangulate" name="Triangulate" min="0.1" max="2.5" value="2.0" step="0.1">
-                <label for="Triangulate">Triangulate</label>
-                <div class="section-left">
-            </div>
-
-            <div>
-                <h10>   Divide the triangles in smaller pieces by moving this slider</h10>
-                <div>
-
-                <div>
-                <input type="range" id="Subdivide_triangles" name="Subdivide_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
-                <label for="Subdivide_triangles">Subdivide_triangles</label>
-            </div>
-
-            <div>
-                <h10>   Inflate and deflate the pieces by moving this slider</h10>
-                <div>
-
-                <div>
-                <input type="range" id="Inflate_triangles" name="Inflate_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
-                <label for="Inflate_triangles">Inflate_triangles</label>
-            </div>
-
-            <div>
-                <h10>   Open and close the panels by moving this slider</h10>
-                <div>
-
-                <div>
-                <input type="range" id="Panel_openings" name="Panel_openings" min="15" max="50" value="38" step="1">
-                <label for="Panel_openings">Panel_openings</label>
-            </div>
-         
         </div>
-        
-        ...............................................................................................................................................................
- <div class="section">
+
+        <div>
+            <input type="range" id="Triangulate" name="Triangulate" min="0.1" max="2.5" value="2.0" step="0.1">
+            <label for="Triangulate">Triangulate</label>
             <div class="section-left">
-                <h7>   Obs: It shows the geometry exposed to the cumulative sun hours using Barcelona as a reference</h7>
             </div>
-            <div class="section">
-                <div class="section-left">
-                    <h7>   Obs1: Yellow shows the biggest amount of incidence of sun light along the year,decreasing in order: </h7>
-                </div>
-                <div class="section">
-                    <div class="section-left">
-                        <h7>  decreasing in order as orange, red, purple and blue</h7>
-                    </div>
-            ...............................................................................................................................................................
+        </div>
     
-    <script type="importmap">
-			{
+        <div>
+            <h10>Divide the triangles in smaller pieces by moving this slider</h2>
+            <div>
+                <input type="range" id="Subdivide_triangles" name="Subdivide_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
+                <label for="Subdivide_triangles">Subdivide triangles</label>
             </div>
-            <div class="section">
-                <div class="section-right">
-                
-				"imports": {
-				  "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
-				  "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/",
-                  "rhino3dm": "https://unpkg.com/rhino3dm@0.15.0-beta/rhino3dm.module.js",
-                  "rhinocompute": "https://cdn.jsdelivr.net/npm/compute-rhino3d@0.13.0-beta/compute.rhino3d.module.js"
-                </div>
-				}
-			  }
-		  </script>
-    <script type="module" src="scriptX.js"></script>
-
-</body>
-
-</html>
+        </div>
+    
+        <div>
+            <h10>Inflate and deflate the pieces by moving this slider</h2>
+            <div>
+                <input type="range" id="Inflate_triangles" name="Inflate_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
+                <label for="Inflate_triangles">Inflate triangles</label>
+            </div>
+        </div>
+    
+        <div>
+            <h10>Open and close the panels by moving this slider</h2>
+            <div>
+                <input type="range" id="Panel_openings" name="Panel_openings" min="15" max="50" value="38" step="1">
+                <label for="Panel_openings">Panel openings</label>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="section-left">
+                <h7>Obs: It shows the geometry exposed to the cumulative sun hours using Barcelona as a reference</h4>
+            </div>
+            <div class="section-right">
+                <h7>Obs1: Yellow shows the biggest amount of incidence of sun light along the year, decreasing in order: orange, red, purple and blue</h4>
+            </div>
+        </div>
+    
+        <div>
+            <div class="section-right">
+            <script type="importmap">
+                {
+                    "imports": {
+                        "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
+                        "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/",
+                        "rhino3dm": "https://unpkg.com/rhino3dm@0.15.0-beta/rhino3dm.module.js",
+                        "rhinocompute": "https://cdn.jsdelivr.net/npm/compute-rhino3d@0.13.0-beta/compute.rhino3d.module.js"
+                    }
+                }
+            </script>
+            <script type="module" src="scriptX.js"></script>
+        </div>
+    </body>
+    
+    </html>
