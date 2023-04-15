@@ -3,22 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Spiky dome</title>
+    <title><Ring:fli></title>
 
     <style>
         
         body { 
     background-color: #d2f6ff;
-    margin: 50px; 
+    margin: 30px; 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 input {
-    width: 30%;
+    width: 40%;
 }
 
 h1 {
     position: relative;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bolder;
     font-style: italic;
     text-decoration: none;
@@ -32,19 +32,20 @@ h1 {
 
 ::-webkit-slider-runnable-track{
   -webkit-appearance: none;
-  width: 50%;
-  background: linear-gradient(90deg, #c2f0ff, #0175d4);
-  height: 15px;
+  width: 40%;
+  background: linear-gradient(90deg, #c2f0ff, #0282eb);
+  height: 19px;
   border-radius: 4px;
-  margin: 10px 1px;
+  margin: 4px 1px;
 }
 ::-webkit-slider-thumb {
   -webkit-appearance: solid;
-  height: 8px;
-  width: 6px;
-  border-radius: none;
-  background-color:#002c47;
+  height: 6px;
+  width: 4px;
+  border-radius: 2px;
+  background-color:#001e30;
   cursor: pointer;
+  position: relative;
 }
 
 
@@ -56,24 +57,25 @@ h1 {
 
 
         #container {
-            position: right;
+            width: 30%;
+            position: absolute
         }
 
         #overlay {
             z-index: 1;
-            width: 100%
+            width: 30%
         }
 
         #loader {
             border: linear-gradient(#037cc7, #e8f4ff) 3px;
-            border-top: 5px dashed #4c7184;
-            border-radius: 100%;
+            border-top: 4px dashed #028feed5;
+            border-radius: 50%;
             width: 40px;
             height: 70px;
             animation: spin 1s linear infinite;
             position: absolute;
             top: 50%;
-            left: 70%;
+            left: 50%;
             z-index: 1;
         }
 
@@ -95,7 +97,7 @@ h1 {
     ...............................................................................................................................................................
     <div class="section">
         <div class="section-left">
-            <h1>Spiky dome</h1>
+            <h1>Ring:fli</h1>
         
         </div>
     </div>
@@ -103,9 +105,7 @@ h1 {
 
     <div class="section">
         <div class="section-left">
-            <h5>Move the sliders to get a different geometry sudvision and a different opening for the panels</h5>
-            <h5>Hit the button to preview each geometries are more exposed to sun light along the day</h5>
-            <h5>Check the legend and the compass, it will help you to understand it</h5>
+            <h5>Move the sliders to get a different geometry movement and a different central opening </h5>
         </div>
     </div>
     ...............................................................................................................................................................
@@ -114,48 +114,65 @@ h1 {
     <div id="container">
         <div id="overlay">
            <div></div>
-                <h10>   Divide the dome in triagles by moving this slider</h10>
+                <h10>   Defined the height proportion in 2 side edges</h10>
         </div>
 
         <div>
-            <input type="range" id="Triangulate" name="Triangulate" min="0.1" max="2.5" value="2.0" step="0.1">
-            <label for="Triangulate">Triangulate</label>
+            <input type="range" id="Side height" name="Side height" min="1" max="160" value="30" step="1">
+            <label for="Side height">Side height</label>
             <div class="section-left">
             </div>
         </div>
     
         <div>
-            <h10>Divide the triangles in smaller pieces by moving this slider</h2>
+            <h10>Defines the pavilion total length</h2>
             <div>
-                <input type="range" id="Subdivide_triangles" name="Subdivide_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
-                <label for="Subdivide_triangles">Subdivide triangles</label>
+                <input type="range" id="Length" name="Length" min="-500" max="500" value="-300" step="1">
+                <label for="Length">Length</label>
             </div>
         </div>
     
         <div>
-            <h10>Inflate and deflate the pieces by moving this slider</h2>
+            <h10>Defines the pavilion total length</h2>
             <div>
-                <input type="range" id="Inflate_triangles" name="Inflate_triangles" min="0.1" max="2.5" value="2.0" step="0.1">
-                <label for="Inflate_triangles">Inflate triangles</label>
+                <input type="range" id="Wing height" name="Wing height" min="50" max="300" value="-300" step="1">
+                <label for="Wing height">Wing height</label>
+            </div>
+        </div>
+
+        <div>
+            <h10>Defines the middle opening in one direction</h2>
+            <div>
+                <input type="range" id="Opening direction 01" name="Opening direction 01" min="0" max="1.0" value="0.35" step="0.1">
+                <label for="Opening direction 01">Opening direction 01</label>
             </div>
         </div>
     
         <div>
-            <h10>Open and close the panels by moving this slider</h2>
+            <h10>Defines the middle opening in  the oposite direction</h2>
             <div>
-                <input type="range" id="Panel_openings" name="Panel_openings" min="15" max="50" value="38" step="1">
-                <label for="Panel_openings">Panel openings</label>
+                <input type="range" id="Opening direction 02" name="Opening direction 02" min="0" max="1.00" value="0.82" step="0.01">
+                <label for="Opening direction 02">Opening direction 02</label>
             </div>
         </div>
-    
-        <div class="section">
-            <div class="section-left">
-                <h7>Obs: It shows the geometry exposed to the cumulative sun hours using Barcelona as a reference</h4>
-            </div>
-            <div class="section-right">
-                <h7>Obs1: Yellow shows the biggest amount of incidence of sun light along the year, decreasing in order: orange, red, purple and blue</h4>
+
+        <div>
+            <h10>Defines the frequency number of the creasing pattern</h2>
+            <div>
+                <input type="range" id="Crease frequency" name="Crease frequency" min="8" max="20" value="14" step="1">
+                <label for="Crease frequency">Crease frequency</label>
             </div>
         </div>
+
+        <div>
+            <h10>Defines creasing pattern depth</h2>
+            <div>
+                <input type="range" id="Crease depth" name="Crease depth" min="0.80" max="0.98" value="0.88" step="0.01">
+                <label for="Crease depth">Crease depth</label>
+            </div>
+        </div>
+
+
     
         <div>
             <div class="section-right">

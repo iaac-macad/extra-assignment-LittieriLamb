@@ -6,26 +6,36 @@ import rhino3dm from "rhino3dm"
 import { RhinoCompute } from "rhinocompute"
 
 
-const definitionName = "Triangulated_dome.gh"
+const definitionName = "wing_pavilion.gh"
 
 // Set up sliders
-const Triangulate_slider = document.getElementById("Triangulate")
-Triangulate_slider.addEventListener("mouseup", onSliderChange, false)
-Triangulate_slider.addEventListener("touchend", onSliderChange, false)
+const Side_height_slider = document.getElementById("Side height")
+Side_height_slider.addEventListener("mouseup", onSliderChange, false)
+Side_height_slider.addEventListener("touchend", onSliderChange, false)
 
-const Subdivide_triangles_slider = document.getElementById("Subdivide_triangles")
-Subdivide_triangles_slider.addEventListener("mouseup", onSliderChange, false)
-Subdivide_triangles_slider.addEventListener("touchend", onSliderChange, false)
+const Length_slider = document.getElementById("Length")
+Length_slider.addEventListener("mouseup", onSliderChange, false)
+Length_slider.addEventListener("touchend", onSliderChange, false)
 
-const Inflate_triangles_slider = document.getElementById("Inflate_triangles")
-Inflate_triangles_slider.addEventListener("mouseup", onSliderChange, false)
-Inflate_triangles_slider.addEventListener("touchend", onSliderChange, false)
+const Wing_height_slider = document.getElementById("Wing height")
+Wing_height_slider.addEventListener("mouseup", onSliderChange, false)
+Wing_height_slider.addEventListener("touchend", onSliderChange, false)
 
-const Panel_openings_slider = document.getElementById("Panel_openings")
-Panel_openings_slider.addEventListener("mouseup", onSliderChange, false)
-Panel_openings_slider.addEventListener("touchend", onSliderChange, false)
+const Opening_direction_01_slider = document.getElementById("Opening direction 01")
+Opening_direction_01_slider.addEventListener("mouseup", onSliderChange, false)
+Opening_direction_01_slider.addEventListener("touchend", onSliderChange, false)
 
+const Opening_direction_02_slider = document.getElementById("Opening direction 02")
+Opening_direction_02_slider.addEventListener("mouseup", onSliderChange, false)
+Opening_direction_02_slider.addEventListener("touchend", onSliderChange, false)
 
+const Crease_frequency_slider = document.getElementById("Crease frequency")
+Crease_frequency_slider.addEventListener("mouseup", onSliderChange, false)
+Crease_frequency_slider.addEventListener("touchend", onSliderChange, false)
+
+const Crease_depth_slider = document.getElementById("Crease depth")
+Crease_depth_slider.addEventListener("mouseup", onSliderChange, false)
+Crease_depth_slider.addEventListener("touchend", onSliderChange, false)
 
 
 
@@ -69,20 +79,36 @@ rhino3dm().then(async (m) => {
  */
 async function compute() {
   // Create and asign first parameter value
-  const param1 = new RhinoCompute.Grasshopper.DataTree("Triangulate")
-  param1.append([0], [Triangulate_slider.valueAsNumber])
+  const param1 = new RhinoCompute.Grasshopper.DataTree("Side height")
+  param1.append([0], [Side_height_slider.valueAsNumber])
 
   // Create and asign second parameter value
-  const param2 = new RhinoCompute.Grasshopper.DataTree("Subdivide_triangles")
-  param2.append([0], [Subdivide_triangles_slider.valueAsNumber])
+  const param2 = new RhinoCompute.Grasshopper.DataTree("Lenght")
+  param2.append([0], [Length_slider.valueAsNumber])
 
   // Create and asign first parameter value
-  const param3 = new RhinoCompute.Grasshopper.DataTree("Inflate_triangles")
-  param3.append([0], [Inflate_triangles_slider.valueAsNumber])
+  const param3 = new RhinoCompute.Grasshopper.DataTree("Wing height")
+  param3.append([0], [Wing_height_slider.valueAsNumber])
 
   // Create and asign first parameter value
-  const param4 = new RhinoCompute.Grasshopper.DataTree("Panel_openings")
-  param3.append([0], [Panel_openings_slider.valueAsNumber])
+  const param4 = new RhinoCompute.Grasshopper.DataTree("Opening direction 01")
+  param4.append([0], [Opening_direction_01_slider.valueAsNumber])
+
+
+  // Create and asign first parameter value
+  const param5 = new RhinoCompute.Grasshopper.DataTree("Opening direction 02")
+  param5.append([0], [Opening_direction_02_slider.valueAsNumber])
+
+  
+  // Create and asign first parameter value
+  const param6 = new RhinoCompute.Grasshopper.DataTree("Crease frequency")
+  param6.append([0], [Crease_frequency_slider.valueAsNumber])
+
+  
+  // Create and asign first parameter value
+  const param7 = new RhinoCompute.Grasshopper.DataTree("Crease depth")
+  param7.append([0], [Crease_depth_slider.valueAsNumber])
+
 
   // clear values
   const trees = []
@@ -90,6 +116,13 @@ async function compute() {
   trees.push(param2)
   trees.push(param3)
   trees.push(param4)
+  trees.push(param5)
+  trees.push(param6)
+  trees.push(param7)
+
+ 
+
+
 
   // Run the definition
   const res = await RhinoCompute.Grasshopper.evaluateDefinition(
@@ -185,12 +218,9 @@ function init() {
   scene = new THREE.Scene()
   scene.background = new THREE.Color(1,1,1)
   camera = new THREE.PerspectiveCamera(
-    75 ,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  )
-  camera.position.set(400, 400, 200); //setup the right camera to start with!
+    80 ,    window.innerWidth / window.innerHeight,
+    0.1,    1000  )
+  camera.position.set(500, 500, 150); //setup the right camera to start with!
   camera.up.set(0, 0, 25);
   camera.lookAt(0, 0, 20);
 

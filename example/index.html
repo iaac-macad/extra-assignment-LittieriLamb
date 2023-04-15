@@ -19,20 +19,20 @@
         }
 
         #overlay {
-            z-index: 1;
-            width: 100%
+            z-index: 5;
+            width: 50%;
         }
 
         #loader {
-            border: 5px solid #f3f3f3;
+            border: 5px solid #f1f1f1;
             /* Light grey */
-            border-top: 5px solid #3d3d3d;
+            border-top: 5px solid #be2323;
             /* Grey */
             border-radius: 50%;
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
-            position: absolute;
+            position: right;
             top: 50%;
             left: 50%;
             z-index: 2;
@@ -45,6 +45,7 @@
 
             100% {
                 transform: rotate(360deg);
+                background-color: #f5d820;
             }
         }
     </style>
